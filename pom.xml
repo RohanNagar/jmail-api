@@ -85,6 +85,22 @@
         </executions>
       </plugin>
 
+      <plugin>
+        <groupId>com.heroku.sdk</groupId>
+        <artifactId>heroku-maven-plugin</artifactId>
+        <version>3.0.3</version>
+        <configuration>
+          <appName>jmail-api</appName>
+          <jdkVersion>16</jdkVersion>
+          <processTypes>
+            <web>java -Ddw.server.connector.port=$PORT -jar target/jmail-api-1.0.0-SNAPSHOT.jar server config.yaml</web>
+          </processTypes>
+          <includes>
+            <include>./config.yaml</include>
+          </includes>
+        </configuration>
+      </plugin>
+
       <!-- Easily perform releases -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
