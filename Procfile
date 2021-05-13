@@ -1,1 +1,0 @@
-web: java -Ddw.server.connector.port=$PORT -jar target/jmail-1.0.0-SNAPSHOT.jar server config.yaml
