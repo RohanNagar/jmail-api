@@ -32,20 +32,8 @@ jobs:
       - name: Build with Maven
         run: mvn package jacoco:report
 
-  deploy:
-    if: github.event_name == 'push'
-    runs-on: ubuntu-latest
-    needs: [build]
-
-    steps:
-      - uses: actions/checkout@v2.3.4
-      - name: Set up JDK
-        uses: actions/setup-java@v2
-        with:
-          distribution: 'adopt'
-          java-version: 16
-
       - name: Deploy to Heroku
+        if: github.event_name == 'push'
         run: mvn heroku:deploy
         env:
           HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
