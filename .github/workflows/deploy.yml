@@ -1,14 +1,9 @@
-name: CI
+name: Deploy API
 
-on:
-  push:
-    branches: [ master ]
-    tags: '*'
-  pull_request:
-    branches: [ master ]
+on: workflow_dispatch
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
 
     steps:
@@ -28,9 +23,6 @@ jobs:
           key: ${{ runner.os }}-maven-node-${{ hashFiles('**/pom.xml') }}
           restore-keys: |
             ${{ runner.os }}-maven-node-
-
-      - name: Build with Maven
-        run: mvn package
 
       - name: Deploy to Heroku
         if: github.event_name == 'push'
