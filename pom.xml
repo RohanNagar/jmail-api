@@ -17,7 +17,7 @@
     <java.release.version>16</java.release.version>
 
     <dropwizard.version>2.0.21</dropwizard.version>
-    <jmail.version>1.0.2</jmail.version>
+    <jmail.version>1.0.3</jmail.version>
 
     <!-- Plugin versions -->
     <checkstyle.version>8.42</checkstyle.version>
