@@ -1,0 +1,15 @@
+name: Keep JMail API Hot
+
+# Heroku sleeps the API after 30 minutes of inactivity.
+# Let's keep it hot by making a request every 20 minutes.
+on:
+  schedule:
+    - cron: "0/20 * * * *"
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Curl the API
+        run: curl -s -o /dev/null -w "%{http_code}" "https://jmail-api.herokuapp.com/app/validate?address=test@test.com"
