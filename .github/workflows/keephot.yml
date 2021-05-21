@@ -4,7 +4,7 @@ name: Keep JMail API Hot
 # Let's keep it hot by making a request every 20 minutes.
 on:
   schedule:
-    - cron: "0/20 * * * *"
+    - cron: "*/20 * * * *"
 
 jobs:
   update:
